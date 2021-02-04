@@ -10,8 +10,12 @@ public class IslandController : MonoBehaviour
     // Islands
     public IslandSO islandSO;
     private GameObject island1;
+#pragma warning disable IDE0052 // Remove unread private members
     private GameObject island2;
+#pragma warning restore IDE0052 // Remove unread private members
+#pragma warning disable IDE0052 // Remove unread private members
     private GameObject island3;
+#pragma warning restore IDE0052 // Remove unread private members
     public Vector3 spawnPos1 = new Vector3(0, 0, 0);
     public Vector3 spawnPos2 = new Vector3(0, 0, 0);
     public Vector3 spawnPos3 = new Vector3(0, 0, 0);
