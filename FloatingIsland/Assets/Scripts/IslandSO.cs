@@ -8,6 +8,4 @@ public class IslandSO : ScriptableObject
     public GameObject islandOne;
     public GameObject islandTwo;
     public GameObject islandThree;
-    [Header("Selection")]
-    public GameObject activeIsland;
 }
