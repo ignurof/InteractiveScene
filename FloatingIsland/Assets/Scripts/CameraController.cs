@@ -5,18 +5,16 @@ using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
+    public IslandController iC;
+
     // Position vars
     private Vector3 pos1;
     private Vector3 pos2;
     private Vector3 pos3;
     private Vector3 posHolder;
-    // Rotation vars
-    private Quaternion rot1;
-    private Quaternion rot2;
-    private Quaternion rot3;
 
     // Smooth movement
-    private float speed = 40f;
+    private float speed = 80f;
     private bool canMove;
     private bool isMoving;
 
@@ -26,16 +24,20 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         // Setup cam positions
-        pos1 = new Vector3(85, 80, -70);
-        pos2 = new Vector3(-65, 9, -15);
-        pos3 = new Vector3(15, 9, 65);
-        // Cam rotations
-        rot1 = Quaternion.Euler(25, -45, 0);
-        rot2 = Quaternion.Euler(25, 45, 0);
-        rot3 = Quaternion.Euler(25, -135, 0);
+        pos1 = new Vector3(85, 70, -70);
+        pos2 = new Vector3(-215, 80, -30);
+        pos3 = new Vector3(25, -10, 200);
         // Setup start pos
         island = 1;
         transform.position = pos1;
+    }
+
+    // Smoothly rotate the camera based on target position
+    void SmoothLookAt(Transform myTransform)
+    {
+        Vector3 lookDirection = myTransform.transform.position - transform.position;
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookDirection), 2f * Time.deltaTime);
     }
 
     // Update is called once per frame
@@ -43,22 +45,33 @@ public class CameraController : MonoBehaviour
     {
         float step = speed * Time.deltaTime;
 
+        // Rotate based on active target
+        switch (island)
+        {
+            case 1:
+                SmoothLookAt(iC.island1.transform);
+                break;
+            case 2:
+                SmoothLookAt(iC.island2.transform);
+                break;
+            case 3:
+                SmoothLookAt(iC.island3.transform);
+                break;
+        }
+
         // Move smoothly towards position
         if (canMove)
         {
             isMoving = true;
+
+            // Move
             transform.position = Vector3.MoveTowards(transform.position, posHolder, step);
+
+            // Reset values on reached destination
             if (transform.position == posHolder)
             {
                 canMove = false;
                 isMoving = false;
-
-                if (posHolder == pos1)
-                    transform.rotation = rot1;
-                else if (posHolder == pos2)
-                    transform.rotation = rot2;
-                else if (posHolder == pos3)
-                    transform.rotation = rot3; 
             }
         }
 

@@ -11,9 +11,9 @@ public class IslandController : MonoBehaviour
     public GameObject cam;
     // Islands
     public IslandSO islandSO;
-    private GameObject island1;
-    private GameObject island2;
-    private GameObject island3;
+    public GameObject island1;
+    public GameObject island2;
+    public GameObject island3;
     private Vector3 spawnPos1 = new Vector3(0, 0, 0);
     private Vector3 spawnPos2 = new Vector3(-200, 60, 0);
     private Vector3 spawnPos3 = new Vector3(0, -33, 200);

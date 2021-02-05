@@ -463,6 +463,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1842102809}
   islandSO: {fileID: 11400000, guid: 0ac3121061f1bf9468ba833be1f9f4c0, type: 2}
+  island1: {fileID: 0}
+  island2: {fileID: 0}
+  island3: {fileID: 0}
   activeIsland: {fileID: 0}
 --- !u!4 &1755131769
 Transform:
@@ -606,6 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5513234d38d84f14595bd24e1d93fce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iC: {fileID: 1755131767}
   island: 0
 --- !u!1 &1935239811
 GameObject:
