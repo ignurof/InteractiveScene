@@ -14,9 +14,9 @@ public class IslandController : MonoBehaviour
     private GameObject island1;
     private GameObject island2;
     private GameObject island3;
-    public Vector3 spawnPos1 = new Vector3(0, 0, 0);
-    public Vector3 spawnPos2 = new Vector3(0, 0, 0);
-    public Vector3 spawnPos3 = new Vector3(0, 0, 0);
+    private Vector3 spawnPos1 = new Vector3(0, 0, 0);
+    private Vector3 spawnPos2 = new Vector3(-200, 60, 0);
+    private Vector3 spawnPos3 = new Vector3(0, -33, 200);
 
     // We need somewhere to store input values from mouse
     private Vector2 delta;

@@ -463,9 +463,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1842102809}
   islandSO: {fileID: 11400000, guid: 0ac3121061f1bf9468ba833be1f9f4c0, type: 2}
-  spawnPos1: {x: 0, y: 0, z: 0}
-  spawnPos2: {x: -50, y: 0, z: 0}
-  spawnPos3: {x: 0, y: 0, z: 50}
   activeIsland: {fileID: 0}
 --- !u!4 &1755131769
 Transform:
