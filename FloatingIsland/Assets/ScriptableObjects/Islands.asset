@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a6d7bf351b4e8446a998f7688e57955, type: 3}
   m_Name: Islands
   m_EditorClassIdentifier: 
-  islandOne: {fileID: 2914179242975011782, guid: d5025c5a2e84ca349852968b156759d4,
+  islandOne: {fileID: 8083213911804575380, guid: d5025c5a2e84ca349852968b156759d4,
     type: 3}
   islandTwo: {fileID: 2165395955512250217, guid: 60a9083d6f426a0449ff44412bc20b43,
     type: 3}
   islandThree: {fileID: 1350314358680893320, guid: 68ba33f317be0174d8654e1dc4d3e2a2,
     type: 3}
-  activeIsland: {fileID: 0}
