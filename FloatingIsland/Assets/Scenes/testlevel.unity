@@ -354,6 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d103b98dd206d147be7299ae26bee46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 1842102809}
   islandSO: {fileID: 11400000, guid: 0ac3121061f1bf9468ba833be1f9f4c0, type: 2}
   spawnPos1: {x: 0, y: 0, z: 0}
   spawnPos2: {x: -50, y: 0, z: 0}
@@ -504,6 +505,10 @@ MonoBehaviour:
   pos1: {x: 0, y: 0, z: 0}
   pos2: {x: 0, y: 0, z: 0}
   pos3: {x: 0, y: 0, z: 0}
+  rot1: {x: 0, y: 0, z: 0, w: 0}
+  rot2: {x: 0, y: 0, z: 0, w: 0}
+  rot3: {x: 0, y: 0, z: 0, w: 0}
+  island: 0
 --- !u!1 &1935239811
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class CameraController : MonoBehaviour
 
     // Current selection
     private Vector3 activePos;
+    public int island; // 1, 2, 3
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class CameraController : MonoBehaviour
         rot3 = Quaternion.Euler(25, -135, 0);
         // Setup start pos
         activePos = pos1;
+        island = 1;
     }
 
     // Update is called once per frame
@@ -41,12 +43,14 @@ public class CameraController : MonoBehaviour
                 transform.position = pos2;
                 transform.rotation = rot2;
                 activePos = pos2;
+                island = 2;
             }
             else if (activePos == pos3)
             {
                 transform.position = pos1;
                 transform.rotation = rot1;
                 activePos = pos1;
+                island = 1;
             }
         }
 
@@ -57,12 +61,14 @@ public class CameraController : MonoBehaviour
                 transform.position = pos3;
                 transform.rotation = rot3;
                 activePos = pos3;
+                island = 3;
             }
             else if (activePos == pos2)
             {
                 transform.position = pos1;
                 transform.rotation = rot1;
                 activePos = pos1;
+                island = 1;
             }
         }
     }

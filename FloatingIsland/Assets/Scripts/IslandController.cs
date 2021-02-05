@@ -7,15 +7,13 @@ using UnityEngine.InputSystem;
 
 public class IslandController : MonoBehaviour
 {
+    // Cam
+    public GameObject cam;
     // Islands
     public IslandSO islandSO;
     private GameObject island1;
-#pragma warning disable IDE0052 // Remove unread private members
     private GameObject island2;
-#pragma warning restore IDE0052 // Remove unread private members
-#pragma warning disable IDE0052 // Remove unread private members
     private GameObject island3;
-#pragma warning restore IDE0052 // Remove unread private members
     public Vector3 spawnPos1 = new Vector3(0, 0, 0);
     public Vector3 spawnPos2 = new Vector3(0, 0, 0);
     public Vector3 spawnPos3 = new Vector3(0, 0, 0);
@@ -27,12 +25,6 @@ public class IslandController : MonoBehaviour
     [Header("Selected")]
     [SerializeField]
     private GameObject activeIsland;
-
-
-    // Rotate current island
-#pragma warning disable IDE0051 // Remove unused private members
-    Vector3 currentEulerAngles;
-#pragma warning restore IDE0051 // Remove unused private members
 
     // Setup CallbackContext for EventSystem
     public void Controls(InputAction.CallbackContext context)
@@ -53,7 +45,17 @@ public class IslandController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //apply the Quaternion.eulerAngles change to the gameObject
+        // Make sure we rotate the active island
+        switch (cam.GetComponent<CameraController>().island)
+        {
+            case 1: activeIsland = island1;
+                break;
+            case 2: activeIsland = island2;
+                break;
+            case 3: activeIsland = island3;
+                break;
+        }
+        // Rotate current island
         activeIsland.transform.Rotate(0, delta.x, 0);
     }
 }
