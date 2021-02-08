@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
@@ -76,7 +75,7 @@ public class CameraController : MonoBehaviour
         }
 
         // Check for A keyboard input
-        if (Keyboard.current.aKey.wasPressedThisFrame && !isMoving)
+        if (Input.GetKeyDown(KeyCode.A) && !isMoving)
         {
             canMove = true;
             if(transform.position == pos1)
@@ -92,7 +91,7 @@ public class CameraController : MonoBehaviour
         }
 
         // Check for D keyboard input
-        if (Keyboard.current.dKey.wasPressedThisFrame && !isMoving)
+        if (Input.GetKeyDown(KeyCode.D) && !isMoving)
         {
             canMove = true;
             if (transform.position == pos1)

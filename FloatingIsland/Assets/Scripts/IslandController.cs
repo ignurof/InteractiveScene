@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 // Controls everything related to interacting with the islands
 
@@ -18,19 +17,10 @@ public class IslandController : MonoBehaviour
     private Vector3 spawnPos2 = new Vector3(-200, 60, 0);
     private Vector3 spawnPos3 = new Vector3(0, -33, 200);
 
-    // We need somewhere to store input values from mouse
-    private Vector2 delta;
-
     // Handle current selection
     [Header("Selected")]
     [SerializeField]
     private GameObject activeIsland;
-
-    // Setup CallbackContext for EventSystem
-    public void Controls(InputAction.CallbackContext context)
-    {
-        delta = context.ReadValue<Vector2>();
-    }
 
     void Start()
     {
@@ -56,6 +46,6 @@ public class IslandController : MonoBehaviour
                 break;
         }
         // Rotate current island
-        activeIsland.transform.Rotate(0, delta.x, 0);
+        activeIsland.transform.Rotate(0, Input.GetAxis("Mouse X"), 0);
     }
 }
