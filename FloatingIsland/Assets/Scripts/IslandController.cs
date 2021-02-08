@@ -46,6 +46,6 @@ public class IslandController : MonoBehaviour
                 break;
         }
         // Rotate current island
-        activeIsland.transform.Rotate(0, Input.GetAxis("Mouse X"), 0);
+        activeIsland.transform.Rotate(0, Input.GetAxis("Mouse X") * 2f, 0);
     }
 }
