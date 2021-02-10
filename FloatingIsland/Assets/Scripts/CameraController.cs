@@ -20,6 +20,9 @@ public class CameraController : MonoBehaviour
     // Current selection
     public int island; // 1, 2, 3
 
+    // Cooldown
+    private bool cd;
+
     void Start()
     {
         // Setup cam positions
@@ -29,56 +32,68 @@ public class CameraController : MonoBehaviour
         // Setup start pos
         island = 1;
         transform.position = pos1;
+
+        cd = true;
     }
 
     // Smoothly rotate the camera based on target position
     void SmoothLookAt(Transform myTransform)
     {
+        float step = speed * Time.deltaTime;
+
         Vector3 lookDirection = myTransform.transform.position - transform.position;
 
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookDirection), 2f * Time.deltaTime);
+
+        // Move
+        transform.position = Vector3.MoveTowards(transform.position, posHolder, step);
+
+        // Reset values on reached destination
+        if (transform.position == posHolder && cd)
+        {
+            cd = false;
+            StartCoroutine(CooldownTimer());
+        }
+    }
+
+    IEnumerator CooldownTimer()
+    {
+        yield return new WaitForSeconds(1f);
+        canMove = false;
+        isMoving = false;
+        cd = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float step = speed * Time.deltaTime;
-
-        // Rotate based on active target
-        switch (island)
-        {
-            case 1:
-                SmoothLookAt(iC.island1.transform);
-                break;
-            case 2:
-                SmoothLookAt(iC.island2.transform);
-                break;
-            case 3:
-                SmoothLookAt(iC.island3.transform);
-                break;
-        }
 
         // Move smoothly towards position
         if (canMove)
         {
             isMoving = true;
 
-            // Move
-            transform.position = Vector3.MoveTowards(transform.position, posHolder, step);
-
-            // Reset values on reached destination
-            if (transform.position == posHolder)
+            // Rotate based on active target
+            switch (island)
             {
-                canMove = false;
-                isMoving = false;
-            }
+                case 1:
+                    SmoothLookAt(iC.island1.transform);
+                    break;
+                case 2:
+                    SmoothLookAt(iC.island2.transform);
+                    break;
+                case 3:
+                    SmoothLookAt(iC.island3.transform);
+                    break;
+            }  
         }
 
         // Check for A keyboard input
-        if (Input.GetKeyDown(KeyCode.A) && !isMoving)
+        if (Input.GetKeyDown(KeyCode.A) && !isMoving && !canMove)
         {
             canMove = true;
-            if(transform.position == pos1)
+
+            if (transform.position == pos1)
             {
                 posHolder = pos2;
                 island = 2;
@@ -91,7 +106,7 @@ public class CameraController : MonoBehaviour
         }
 
         // Check for D keyboard input
-        if (Input.GetKeyDown(KeyCode.D) && !isMoving)
+        if (Input.GetKeyDown(KeyCode.D) && !isMoving && !canMove)
         {
             canMove = true;
             if (transform.position == pos1)

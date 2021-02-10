@@ -8,7 +8,6 @@ public class ObjectController : MonoBehaviour
     {
         if (gameObject.name == "Object 1")
         {
-            //transform.position = transform.position + new Vector3(0, 1, 0);
             FunkySize();
         }
         else if (gameObject.name == "Object 2")
