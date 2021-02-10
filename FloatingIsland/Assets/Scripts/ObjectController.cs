@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class ObjectController : MonoBehaviour
 {
+    public GameObject particlePrefab;
+
+    void Awake()
+    {
+        if(particlePrefab != null)
+            particlePrefab.SetActive(false);
+    }
+
     void OnMouseDown()
     {
         if (gameObject.name == "Object 1")
@@ -29,6 +37,10 @@ public class ObjectController : MonoBehaviour
         else if (gameObject.name == "Object 6")
         {
             transform.position = transform.position + new Vector3(0, 1, 0);
+        }
+        else if(gameObject.name == "Island 2")
+        {
+            particlePrefab.SetActive(true);
         }
     }
 
