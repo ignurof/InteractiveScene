@@ -45,7 +45,8 @@ public class IslandController : MonoBehaviour
             case 3: activeIsland = island3;
                 break;
         }
-        // Rotate current island
-        activeIsland.transform.Rotate(0, Input.GetAxis("Mouse X") * 2f, 0);
+        // Rotate current island while holding RMB
+        if(Input.GetKey(KeyCode.Mouse1))
+            activeIsland.transform.Rotate(0, Input.GetAxis("Mouse X") * 2f, 0);
     }
 }
