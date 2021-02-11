@@ -6,6 +6,8 @@ public class ObjectController : MonoBehaviour
 {
     public GameObject particlePrefab;
 
+    private bool isPlaying;
+
     void Awake()
     {
         if(particlePrefab != null)
@@ -38,9 +40,18 @@ public class ObjectController : MonoBehaviour
         {
             transform.position = transform.position + new Vector3(0, 1, 0);
         }
-        else if(gameObject.name == "Island 2")
+        else if(gameObject.name == "Island 2" || gameObject.name == "Island 2(Clone)")
         {
-            particlePrefab.SetActive(true);
+            if (!isPlaying)
+            {
+                particlePrefab.SetActive(true);
+                isPlaying = true;
+            }
+            else
+            {
+                particlePrefab.SetActive(false);
+                isPlaying = false;
+            }
         }
     }
 

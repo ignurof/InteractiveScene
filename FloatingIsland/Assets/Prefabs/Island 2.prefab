@@ -240,6 +240,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 828340164706080303}
     m_Modifications:
+    - target: {fileID: 7028961323962417932, guid: 285e1e5a9af9d004c8577ed23c9f88da,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7267248675938440597, guid: 285e1e5a9af9d004c8577ed23c9f88da,
         type: 3}
       propertyPath: m_RootOrder
@@ -324,6 +329,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lava Puffs Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807885185519845400, guid: a449a6b745aa0074781de50113a1cbca,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6807885185519845402, guid: a449a6b745aa0074781de50113a1cbca,
         type: 3}
