@@ -40,6 +40,19 @@ public class ObjectController : MonoBehaviour
         {
             transform.position = transform.position + new Vector3(0, 1, 0);
         }
+        else if (gameObject.name == "Island 1" || gameObject.name == "Island 1(Clone)")
+        {
+            if (!isPlaying)
+            {
+                particlePrefab.SetActive(true);
+                isPlaying = true;
+            }
+            else
+            {
+                particlePrefab.SetActive(false);
+                isPlaying = false;
+            }
+        }
         else if(gameObject.name == "Island 2" || gameObject.name == "Island 2(Clone)")
         {
             if (!isPlaying)
