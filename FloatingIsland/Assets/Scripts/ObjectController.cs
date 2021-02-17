@@ -18,7 +18,16 @@ public class ObjectController : MonoBehaviour
     {
         if (gameObject.name == "Object 1")
         {
-            FunkySize();
+            if (!isPlaying)
+            {
+                particlePrefab.SetActive(true);
+                isPlaying = true;
+            }
+            else
+            {
+                particlePrefab.SetActive(false);
+                isPlaying = false;
+            }
         }
         else if (gameObject.name == "Object 2")
         {
