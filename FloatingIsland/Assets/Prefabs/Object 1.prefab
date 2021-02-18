@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7360845886364303804}
   m_Layer: 0
   m_Name: Object 1
-  m_TagString: Untagged
+  m_TagString: Object 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,6 +150,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bush Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333740159577126604, guid: 4ba90c8714931c94c83fbcec1576298b,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333740159577126604, guid: 4ba90c8714931c94c83fbcec1576298b,
+        type: 3}
+      propertyPath: prewarm
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7333740159577126605, guid: 4ba90c8714931c94c83fbcec1576298b,
         type: 3}
